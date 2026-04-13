@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Google Sans Flex", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Google Sans Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white overflow-hidden;
+  }
+}
+
+@layer components {
+  /* Browser Shell Styles (kept from original) */
+  .browser-shell {
+    @apply flex flex-col h-full bg-[#35363a];
+  }
+
+  .tab-bar {
+    @apply flex items-end px-2 h-9 bg-[#18181b];
+  }
+
+  .tab-list {
+    @apply flex items-end flex-1 min-w-0 overflow-x-auto no-scrollbar;
+  }
+
+  .tab {
+    @apply flex items-center gap-1.5 bg-[#28292d] px-3.5 py-1.5 rounded-t-lg max-w-[200px] min-w-[140px] cursor-pointer shrink-0 transition-colors border-r border-[#18181b];
+  }
+
+  .tab:hover {
+    @apply bg-[#303136];
+  }
+
+  .active-tab {
+    @apply bg-[#44454a];
+  }
+
+  .tab-title {
+    @apply text-[11px] text-[#9aa0a6] truncate flex-1;
+  }
+
+  .active-tab .tab-title {
+    @apply text-[#e8eaed];
+  }
+
+  .tab-close {
+    @apply flex items-center justify-center w-4 h-4 rounded-full text-[#9aa0a6] hover:bg-[#3c4043] hover:text-[#e8eaed] opacity-0 transition-all;
+  }
+
+  .tab:hover .tab-close,
+  .active-tab .tab-close {
+    @apply opacity-100;
+  }
+
+  .address-bar {
+    @apply flex items-center gap-1 px-2 py-1.5 bg-[#44454a] border-b border-[#3c4043];
+  }
+
+  .omnibar-input {
+    @apply w-full px-3 py-1.5 bg-[#1e1f23] border border-transparent rounded-full text-sm text-[#e8eaed] outline-none transition-all focus:bg-[#303134] focus:border-[#8ab4f8];
+  }
+
+  .browser-viewport {
+    @apply flex-1 relative min-h-0 overflow-hidden;
+  }
+
+  .sandbox-iframe {
+    @apply w-full h-full border-none bg-[#111];
+  }
+
+  .newtab-page {
+    @apply w-full h-full bg-[#2a2a2e] flex items-center justify-center;
+  }
+
+  .newtab-content {
+    @apply flex flex-col items-center gap-5 w-full max-w-[560px] px-6;
+  }
+
+  .newtab-input-row {
+    @apply flex items-center bg-[#1e1f23] border-2 border-white/60 rounded-full transition-all focus-within:border-white focus-within:ring-4 focus-within:ring-white/10;
+  }
+
+  .newtab-input {
+    @apply flex-1 px-5 py-3.5 bg-transparent border-none text-white text-base outline-none;
+  }
+
+  .newtab-btn {
+    @apply px-6 py-2.5 bg-[#1e1f23] rounded-lg text-white text-sm hover:bg-[#2a2b30] transition-colors;
+  }
+
+  /* OS Specific Utilities */
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
